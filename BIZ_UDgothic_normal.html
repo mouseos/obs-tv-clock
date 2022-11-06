@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>時刻表示</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@700&display=swap" rel="stylesheet">
+</head>
+<body onload="strClock();">
+  <div id="clock"></div>
+  <script type="text/javascript">
+ 
+    // 時刻取得関数
+    function getTime() {
+      var now = new Date();
+      var hh = ('0' + now.getHours()).slice(-2);
+      var mm = ('0' + now.getMinutes()).slice(-2);
+      //12時間表記
+      if(hh>12){
+       hh-=12;
+      }
+      nowtime = hh + ":" + mm ;
+      var clock = document.getElementById('clock');
+      clock.innerHTML = nowtime;
+    }
+ 
+    // 開始関数
+    function strClock() {
+      setInterval("getTime();", 1000);
+    }
+  </script>
+  <style>
+  @import url('https://fonts.cdnfonts.com/css/ud');
+  #clock{
+  font-family: 'BIZ UDGothic', sans-serif;
+  font-weight:bold;
+  font-size:100px;
+  -webkit-text-stroke: 3px black;
+  color:white;
+  }
+  body{
+  background-color:transparent;
+  }
+  </style>
+</body>
+</html>
